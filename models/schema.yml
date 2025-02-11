@@ -7,6 +7,12 @@ sources:
         name : sales
         description: table des ventes par order_id
         
+        freshness:
+          error_after:
+            count: 90
+            period: day
+        loaded_at_field: date_date
+        
       - identifier: raw_gz_product
         name: product
         description: table des produits
