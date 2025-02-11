@@ -8,10 +8,11 @@ sources:
         description: table des ventes par order_id
         
         freshness:
-          error_after:
+          warn_after:
             count: 90
             period: day
-        loaded_at_field: date_date
+          
+        loaded_at_field: CAST(date_date AS timestamp)
         
       - identifier: raw_gz_product
         name: product
