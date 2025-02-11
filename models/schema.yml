@@ -5,8 +5,23 @@ sources:
     tables:
       - identifier: raw_gz_sales
         name : sales
+        description: table des ventes par order_id
         
       - identifier: raw_gz_product
         name: product
+        description: table des produits
+        columns:
+          - name: products_id
+            tests:
+              - unique
+              - not_null
+                
       - identifier: raw_gz_ship
         name: ship
+        description: Table des livraisons
+        columns:
+          - name: orders_id
+            tests:
+              - unique
+              - not_null
+              
