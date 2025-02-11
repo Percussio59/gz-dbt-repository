@@ -1,6 +1,6 @@
 select
 *
-,CAST(p.purchase_price AS FLOAT64) AS purchase_price
+,CAST(p.purchase_price AS FLOAT64) as p_price
 ,round(s.quantity * CAST(p.purchase_price AS FLOAT64),2) as purchase_cost
 ,round((s.quantity * CAST(p.purchase_price AS FLOAT64)) - CAST(p.purchase_price AS FLOAT64),2) as margin
 
