@@ -36,7 +36,8 @@ models:
   - name: int_orders_margin
     description: Marge calculée par commande
     columns:
-    - name: orders_id
-      test:
-        - unique
+      - name: orders_id
+        description: cle de groupement de la vue
+        tests:
+          - unique
 
