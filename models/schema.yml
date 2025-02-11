@@ -1,0 +1,43 @@
+version: 2
+sources:
+  - schema: gz_raw_data
+    name : raw
+    tables:
+      - identifier: raw_gz_sales
+        name : sales
+        description: table des ventes par order_id
+        
+        freshness:
+          warn_after:
+            count: 90
+            period: day
+          
+        loaded_at_field: CAST(date_date AS timestamp)
+        
+      - identifier: raw_gz_product
+        name: product
+        description: table des produits
+        columns:
+          - name: products_id
+            tests:
+              - unique
+              - not_null
+                
+      - identifier: raw_gz_ship
+        name: ship
+        description: Table des livraisons
+        columns:
+          - name: orders_id
+            tests:
+              - unique
+              - not_null
+
+models:
+  - name: int_orders_margin
+    description: Marge calculée par commande
+    columns:
+      - name: orders_id
+        description: cle de groupement de la vue
+        tests:
+          - unique
+
