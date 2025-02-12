@@ -1,3 +1,5 @@
+
+
 select date_date
 ,ROUND(COUNT(orders_id),2) as nb_orders
 ,ROUND(SUM(revenue),2) as total_revenue
