@@ -13,7 +13,17 @@ sources:
             period: day
           
         loaded_at_field: CAST(date_date AS timestamp)
-        
+      - identifier: raw_gz_criteo
+        name: criteo
+
+      - identifier: raw_gz_facebook
+        name: facebook
+
+      - identifier: raw_gz_bing
+        name: bing
+
+      - identifier: raw_gz_adwords
+        name: adwords
       - identifier: raw_gz_product
         name: product
         description: table des produits
@@ -57,6 +67,17 @@ models:
         description: cle de groupement de la vue
         tests:
           - unique
+  - name: int_campaigns
+    description: test sur la table intermédiaire des campagnes
+    columns:
+      - name: ads_cost
+        tests:
+          - not_null
+      - name: impression
+          - not_null
+        
+              
+
 
 
   
